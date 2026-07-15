@@ -1,45 +1,39 @@
-# 🐍 Snake 5.0 – Neon Arcade Edition
+# Snake 5.0 - Neon Arcade Edition
 
-A browser-based Snake game with neon aesthetics, incremental upgrades, and an AI autoplay mode.
+Ein browserbasiertes Snake-Spiel mit Neon-Optik, persistentem Upgrade-System und optionalem KI-Autopiloten.
 
 ## Features
 
-- 🎮 **Three Snake Types** – Velo-Scythe (speed), Neon Viper (balanced), Gold Monarch (double points)
-- 🤖 **AI Autoplay** – Intelligent flood-fill pathfinding that avoids walls and its own body
-- ⚡ **Power-ups** – Speed boost, Ghost mode (wall phasing), Shield
-- 🌟 **Combo Multiplier** – Chain food pickups to ramp up your score
-- 🏆 **Skill Tree** – Spend earned BITS on persistent upgrades between rounds
-- 💾 **Persistent Save** – Progress saved locally via `localStorage`
-- 🎵 **Sound Effects** – Web Audio API driven sound system
+- **Spielmechanik**: Klassisches Snake-Gameplay mit einem Runden-Zeitlimit.
+- **KI-Autopilot**: Sucht Pfade über einen Flood-Fill-Algorithmus zur Vermeidung von Hindernissen und des eigenen Körpers.
+- **Power-ups**: Temporäre Effekte wie Geschwindigkeits-Boost, Phasenverschiebung (Geist-Modus) und Schutzschild.
+- **Upgrade-System**: Erspielte Bits können zwischen den Runden im Upgrade-Modulator für dauerhafte Verbesserungen (Rundenzeit, Nahrungspawns, Geschwindigkeit, KI) ausgegeben werden.
+- **Mehrsprachigkeit**: Integrierter Sprachwechsel (DE/EN) im Hauptmenü.
+- **Speicherung**: Lokale Speicherung des Spielfortschritts über die `localStorage`-API des Browsers.
+- **Audio**: Soundeffekte erzeugt über die Web Audio API.
 
-## How to Play
+## Installation und Ausführung
 
-1. Open `index.html` in any modern browser – no server required.
-2. Select a snake type and hit **SPIEL STARTEN**.
-3. Use **Arrow Keys** or **WASD** to steer.
-4. Eat food before the round timer runs out to keep your combo alive.
-5. Collect power-ups for temporary advantages.
-6. Earn BITS and spend them in the **Skill Tree** for permanent upgrades.
+1. Das Repository lokal klonen oder herunterladen.
+2. Die Datei `index.html` direkt in einem modernen Webbrowser öffnen. Ein lokaler Server ist nicht zwingend erforderlich.
 
-## Controls
+## Steuerung
 
-| Key | Action |
-|-----|--------|
-| Arrow Keys / WASD | Move |
-| Escape | Pause / Resume |
-| On-screen buttons | Touch / click controls |
+| Taste | Aktion |
+|---|---|
+| Pfeiltasten / WASD | Steuerung der Richtung |
+| Escape | Pause / Fortsetzen |
+| Bildschirmtasten | Touch-Steuerung für Mobilgeräte |
 
-## AI Autoplay
+## KI-Autopilot Details
 
-Purchase the **AI Player** upgrade in the Skill Tree. The AI uses a **flood-fill scoring algorithm**: it evaluates every possible move, counts reachable open cells from that position, and prefers moves with the most open space — breaking ties by proximity to food. This ensures the snake avoids dead ends and never runs into its own body.
+Der Autopilot nutzt eine Breitensuche (BFS) für Flood-Fill:
+1. Simuliert die möglichen nächsten Schritte.
+2. Berechnet die Anzahl erreichbarer Zellen für jeden Schritt, um Sackgassen zu vermeiden.
+3. Bevorzugt Wege mit maximalem Freiraum und minimiert bei Gleichstand die Distanz zur nächsten Nahrung.
 
-## Tech Stack
+## Technische Basis
 
-- Vanilla HTML5, CSS3, JavaScript (ES6+)
-- Canvas 2D API for rendering
-- Web Audio API for sound
-- No dependencies – runs entirely in the browser
-
-## License
-
-MIT
+- HTML5, CSS3 und JavaScript (ES6+, Vanilla, keine externen Bibliotheken)
+- Canvas 2D API für das Rendering
+- Web Audio API für Soundeffekte
