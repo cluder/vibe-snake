@@ -1,4 +1,4 @@
-# Snake 5.0 - Neon Arcade Edition
+# Snake 5.0 - Vibe Code Edition
 
 Ein browserbasiertes Snake-Spiel mit Neon-Optik, persistentem Upgrade-System und optionalem KI-Autopiloten.
 
