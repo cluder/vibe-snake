@@ -365,54 +365,67 @@ body {
     transform: scale(0.95);
 }
 
-/* Language Toggle */
+/* Language Toggle – in main menu panel */
 .lang-toggle {
-    position: absolute;
-    top: 14px;
-    right: 18px;
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    gap: 5px;
-    z-index: 10;
+    justify-content: center;
+    gap: 6px;
+    margin: 14px auto 0;
+    background: rgba(13, 2, 23, 0.75);
+    border: 1px solid rgba(0, 240, 255, 0.2);
+    border-radius: 30px;
+    padding: 5px 10px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 0 12px rgba(0, 240, 255, 0.12), 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
 .lang-btn {
-    font-family: var(--font-heading);
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 1px;
-    color: var(--neon-blue);
+    font-size: 1.5rem;
+    line-height: 1;
     background: transparent;
-    border: 1px solid var(--neon-blue);
-    border-radius: 4px;
-    padding: 3px 9px;
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
     cursor: pointer;
-    transition: background 0.18s ease, color 0.18s ease, box-shadow 0.18s ease;
-    box-shadow: 0 0 6px rgba(0, 240, 255, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease, filter 0.2s ease, box-shadow 0.2s ease;
+    filter: grayscale(60%) brightness(0.75);
+    padding: 0;
 }
 
 .lang-btn:hover {
-    background: rgba(0, 240, 255, 0.15);
-    box-shadow: 0 0 12px rgba(0, 240, 255, 0.4);
+    filter: grayscale(0%) brightness(1);
+    transform: scale(1.15);
 }
 
 .lang-btn.active {
-    background: var(--neon-blue);
-    color: #000;
-    box-shadow: 0 0 12px rgba(0, 240, 255, 0.6);
+    filter: grayscale(0%) brightness(1);
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+    border-radius: 50%;
+    background: rgba(0, 240, 255, 0.1);
 }
 
 .lang-sep {
-    color: rgba(255, 255, 255, 0.3);
-    font-size: 0.8rem;
-    user-select: none;
+    width: 1px;
+    height: 22px;
+    background: rgba(255, 255, 255, 0.15);
+    display: block;
 }
 
-/* Make selection-panel relative so lang-toggle can be positioned inside */
-.selection-panel {
-    position: relative;
+.flag-img {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
+/* selection-panel no longer needs relative for the toggle */
 
 
 /* Gameplay Screen & HUD */
@@ -1137,6 +1150,16 @@ kbd {
     .touch-controls {
         display: flex;
     }
+}
+
+/* Menu panel: stack items vertically and center them */
+.selection-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
 }
 
 /* Custom starting menu logo layout and animations */

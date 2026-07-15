@@ -16,6 +16,7 @@
 
 <body>
     <div class="crt-overlay"></div>
+
     <div class="game-container">
         <!-- HEADER -->
         <header class="game-header">
@@ -26,13 +27,6 @@
         <!-- SCREEN: START / MENU -->
         <div id="screen-menu" class="screen active">
             <div class="glass-panel selection-panel">
-
-                <!-- Language Toggle -->
-                <div class="lang-toggle">
-                    <button id="btn-lang-de" class="lang-btn active">DE</button>
-                    <span class="lang-sep">|</span>
-                    <button id="btn-lang-en" class="lang-btn">EN</button>
-                </div>
 
                 <div class="global-status">
                     <span class="status-label" data-i18n="scoreLabel">PUNKTE:</span>
@@ -48,6 +42,17 @@
                 </div>
                 <div class="danger-zone-menu">
                     <button id="btn-menu-reset" class="btn-reset-small" data-i18n="btnHardReset">HARD RESET</button>
+                </div>
+
+                <!-- Language Toggle -->
+                <div class="lang-toggle">
+                    <button id="btn-lang-de" class="lang-btn active" title="Deutsch">
+                        <img src="https://flagcdn.com/w40/de.png" alt="DE" class="flag-img">
+                    </button>
+                    <span class="lang-sep"></span>
+                    <button id="btn-lang-en" class="lang-btn" title="English">
+                        <img src="https://flagcdn.com/w40/gb.png" alt="GB" class="flag-img">
+                    </button>
                 </div>
             </div>
         </div>
