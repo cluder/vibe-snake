@@ -1,6 +1,6 @@
 # 🐍 Snake 5.0 – Neon Arcade Edition
 
-A premium browser-based Snake game with neon aesthetics, incremental upgrades, and an AI autoplay mode.
+A browser-based Snake game with neon aesthetics, incremental upgrades, and an AI autoplay mode.
 
 ## Features
 
@@ -31,7 +31,7 @@ A premium browser-based Snake game with neon aesthetics, incremental upgrades, a
 
 ## AI Autoplay
 
-Purchase the **AI Player** upgrade in the Skill Tree (500 BITS). The AI uses a **flood-fill scoring algorithm**: it evaluates every possible move, counts reachable open cells from that position, and prefers moves with the most open space — breaking ties by proximity to food. This ensures the snake avoids dead ends and never runs into its own body.
+Purchase the **AI Player** upgrade in the Skill Tree. The AI uses a **flood-fill scoring algorithm**: it evaluates every possible move, counts reachable open cells from that position, and prefers moves with the most open space — breaking ties by proximity to food. This ensures the snake avoids dead ends and never runs into its own body.
 
 ## Tech Stack
 

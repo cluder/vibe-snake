@@ -98,6 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const skilltreeBits = document.getElementById("skilltree-bits");
         const finalGlobalBalance = document.getElementById("global-balance-final");
 
+        const bitsLabel = (typeof t === 'function') ? t('bits') : 'Bits';
         const text = `${saveState.globalBits} BITS`;
         if (globalBitsDisplay) globalBitsDisplay.innerText = text;
         if (skilltreeBits) skilltreeBits.innerText = text;
@@ -1030,17 +1031,17 @@ document.addEventListener("DOMContentLoaded", () => {
             hudPowerupBar.style.width = `${percent}%`;
 
             if (activePowerUp.type === 'speed') {
-                hudPowerupName.innerText = "SPEED";
+                hudPowerupName.innerText = (typeof t === 'function') ? t('powerSpeed') : 'SPEED';
                 hudPowerupBar.style.background = "var(--neon-blue)";
                 hudPowerupBar.style.boxShadow = "0 0 8px var(--neon-blue)";
             } else if (activePowerUp.type === 'ghost') {
-                hudPowerupName.innerText = "GEIST";
+                hudPowerupName.innerText = (typeof t === 'function') ? t('powerGhost') : 'GHOST';
                 hudPowerupBar.style.background = "var(--neon-purple)";
                 hudPowerupBar.style.boxShadow = "0 0 8px var(--neon-purple)";
             }
         } else if (hasShield) {
             hudPowerupContainer.style.display = "flex";
-            hudPowerupName.innerText = "SCHILD";
+            hudPowerupName.innerText = (typeof t === 'function') ? t('powerShield') : 'SHIELD';
             hudPowerupBar.style.width = "100%";
             hudPowerupBar.style.background = "var(--neon-pink)";
             hudPowerupBar.style.boxShadow = "0 0 8px var(--neon-pink)";
@@ -1054,10 +1055,10 @@ document.addEventListener("DOMContentLoaded", () => {
         const titleEl = document.getElementById("gameover-title");
         if (titleEl) {
             if (isTimeUp) {
-                titleEl.innerText = "ZEIT ABGELAUFEN!";
+                titleEl.innerText = (typeof t === 'function') ? t('timeUp') : "TIME'S UP!";
                 titleEl.className = "neon-text-green blink";
             } else {
-                titleEl.innerText = "CRASH!";
+                titleEl.innerText = (typeof t === 'function') ? t('crash') : 'CRASH!';
                 titleEl.className = "neon-text-red blink";
             }
         }
@@ -1082,7 +1083,8 @@ document.addEventListener("DOMContentLoaded", () => {
             if (currentSpan) currentSpan.innerText = `${duration}s`;
 
             if (btnUpgradeTime) {
-                btnUpgradeTime.innerText = `VERBESSERN (${cost} B)`;
+                const upLabel = (typeof t === 'function') ? t('btnUpgrade') : 'UPGRADE';
+                btnUpgradeTime.innerText = `${upLabel} (${cost} B)`;
                 if (saveState.globalBits >= cost) {
                     btnUpgradeTime.removeAttribute("disabled");
                     btnUpgradeTime.classList.remove("disabled-upgrade");
@@ -1106,7 +1108,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const btnUpgradeFoodMult = document.getElementById("btn-upgrade-food-mult");
             if (btnUpgradeFoodMult) {
-                btnUpgradeFoodMult.innerText = `VERBESSERN (${cost} B)`;
+                const upLabel = (typeof t === 'function') ? t('btnUpgrade') : 'UPGRADE';
+                btnUpgradeFoodMult.innerText = `${upLabel} (${cost} B)`;
                 if (saveState.globalBits >= cost) {
                     btnUpgradeFoodMult.removeAttribute("disabled");
                     btnUpgradeFoodMult.classList.remove("disabled-upgrade");
@@ -1130,7 +1133,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const btnUpgradeFoodSpeed = document.getElementById("btn-upgrade-food-speed");
             if (btnUpgradeFoodSpeed) {
-                btnUpgradeFoodSpeed.innerText = `VERBESSERN (${cost} B)`;
+                const upLabel = (typeof t === 'function') ? t('btnUpgrade') : 'UPGRADE';
+                btnUpgradeFoodSpeed.innerText = `${upLabel} (${cost} B)`;
                 if (saveState.globalBits >= cost) {
                     btnUpgradeFoodSpeed.removeAttribute("disabled");
                     btnUpgradeFoodSpeed.classList.remove("disabled-upgrade");
@@ -1154,7 +1158,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const btnUpgradeFoodCount = document.getElementById("btn-upgrade-food-count");
             if (btnUpgradeFoodCount) {
-                btnUpgradeFoodCount.innerText = `VERBESSERN (${cost} B)`;
+                const upLabel = (typeof t === 'function') ? t('btnUpgrade') : 'UPGRADE';
+                btnUpgradeFoodCount.innerText = `${upLabel} (${cost} B)`;
                 if (saveState.globalBits >= cost) {
                     btnUpgradeFoodCount.removeAttribute("disabled");
                     btnUpgradeFoodCount.classList.remove("disabled-upgrade");
@@ -1178,7 +1183,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const btnUpgradeSpeed = document.getElementById("btn-upgrade-speed");
             if (btnUpgradeSpeed) {
-                btnUpgradeSpeed.innerText = `VERBESSERN (${cost} B)`;
+                const upLabel = (typeof t === 'function') ? t('btnUpgrade') : 'UPGRADE';
+                btnUpgradeSpeed.innerText = `${upLabel} (${cost} B)`;
                 if (saveState.globalBits >= cost) {
                     btnUpgradeSpeed.removeAttribute("disabled");
                     btnUpgradeSpeed.classList.remove("disabled-upgrade");
@@ -1198,13 +1204,13 @@ document.addEventListener("DOMContentLoaded", () => {
             const currentSpan = document.getElementById("ai-player-current");
             if (currentSpan) {
                 if (!purchased) {
-                    currentSpan.innerText = "NICHT ERWORBEN";
+                    currentSpan.innerText = (typeof t === 'function') ? t('aiNotBought') : 'NOT PURCHASED';
                     currentSpan.className = "neon-text-pink";
                 } else if (enabled) {
-                    currentSpan.innerText = "AKTIV";
+                    currentSpan.innerText = (typeof t === 'function') ? t('aiActive') : 'ACTIVE';
                     currentSpan.className = "neon-text-green";
                 } else {
-                    currentSpan.innerText = "INAKTIV";
+                    currentSpan.innerText = (typeof t === 'function') ? t('aiInactive') : 'INACTIVE';
                     currentSpan.className = "neon-text-gold";
                 }
             }
@@ -1212,7 +1218,8 @@ document.addEventListener("DOMContentLoaded", () => {
             const btnUpgradeAIPlayer = document.getElementById("btn-upgrade-ai-player");
             if (btnUpgradeAIPlayer) {
                 if (!purchased) {
-                    btnUpgradeAIPlayer.innerText = `KAUFEN (${cost} B)`;
+                    const buyLabel = (typeof t === 'function') ? t('btnBuy') : 'BUY';
+                    btnUpgradeAIPlayer.innerText = `${buyLabel} (${cost} B)`;
                     btnUpgradeAIPlayer.className = "btn-neon btn-upgrade";
                     if (saveState.globalBits >= cost) {
                         btnUpgradeAIPlayer.removeAttribute("disabled");
@@ -1225,10 +1232,10 @@ document.addEventListener("DOMContentLoaded", () => {
                     btnUpgradeAIPlayer.removeAttribute("disabled");
                     btnUpgradeAIPlayer.classList.remove("disabled-upgrade");
                     if (enabled) {
-                        btnUpgradeAIPlayer.innerText = "DEAKTIVIEREN";
+                        btnUpgradeAIPlayer.innerText = (typeof t === 'function') ? t('btnDisable') : 'DISABLE';
                         btnUpgradeAIPlayer.className = "btn-neon btn-upgrade secondary";
                     } else {
-                        btnUpgradeAIPlayer.innerText = "AKTIVIEREN";
+                        btnUpgradeAIPlayer.innerText = (typeof t === 'function') ? t('btnEnable') : 'ENABLE';
                         btnUpgradeAIPlayer.className = "btn-neon btn-upgrade";
                     }
                 }

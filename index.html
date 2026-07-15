@@ -11,7 +11,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@500;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=2">
+    <link rel="stylesheet" href="style.css?v=3">
 </head>
 
 <body>
@@ -26,8 +26,16 @@
         <!-- SCREEN: START / MENU -->
         <div id="screen-menu" class="screen active">
             <div class="glass-panel selection-panel">
+
+                <!-- Language Toggle -->
+                <div class="lang-toggle">
+                    <button id="btn-lang-de" class="lang-btn active">DE</button>
+                    <span class="lang-sep">|</span>
+                    <button id="btn-lang-en" class="lang-btn">EN</button>
+                </div>
+
                 <div class="global-status">
-                    <span class="status-label">PUNKTE:</span>
+                    <span class="status-label" data-i18n="scoreLabel">PUNKTE:</span>
                     <span id="global-bits-display" class="status-value neon-text-gold">0 BITS</span>
                 </div>
                 <div class="menu-logo-container">
@@ -35,11 +43,11 @@
                 </div>
 
                 <div class="menu-actions">
-                    <button id="btn-start" class="btn-neon">SPIEL STARTEN</button>
-                    <button id="btn-show-skilltree" class="btn-neon secondary">UPGRADES</button>
+                    <button id="btn-start" class="btn-neon" data-i18n="btnStart">SPIEL STARTEN</button>
+                    <button id="btn-show-skilltree" class="btn-neon secondary" data-i18n="btnUpgrades">UPGRADES</button>
                 </div>
                 <div class="danger-zone-menu">
-                    <button id="btn-menu-reset" class="btn-reset-small">HARD RESET</button>
+                    <button id="btn-menu-reset" class="btn-reset-small" data-i18n="btnHardReset">HARD RESET</button>
                 </div>
             </div>
         </div>
@@ -47,11 +55,11 @@
         <!-- HARD RESET CONFIRM MODAL -->
         <div id="reset-confirm-modal" class="reset-modal hidden">
             <div class="reset-modal-box glass-panel">
-                <h3 class="neon-text-red">⚠ HARD RESET</h3>
-                <p>Alle Upgrades und Bits werden unwiderruflich gelöscht!</p>
+                <h3 class="neon-text-red" data-i18n="resetTitle">&#9888; HARD RESET</h3>
+                <p data-i18n="resetWarning">Alle Upgrades und Bits werden unwiderruflich gel&#246;scht!</p>
                 <div class="reset-modal-actions">
-                    <button id="btn-reset-confirm" class="btn-neon btn-danger">BESTÄTIGEN</button>
-                    <button id="btn-reset-cancel" class="btn-neon secondary">ABBRECHEN</button>
+                    <button id="btn-reset-confirm" class="btn-neon btn-danger" data-i18n="btnConfirm">BEST&#196;TIGEN</button>
+                    <button id="btn-reset-cancel" class="btn-neon secondary" data-i18n="btnCancel">ABBRECHEN</button>
                 </div>
             </div>
         </div>
@@ -60,11 +68,11 @@
         <div id="screen-game" class="screen">
             <div class="hud glass-panel">
                 <div class="hud-item">
-                    <span class="hud-label">GESAMT-BITS</span>
+                    <span class="hud-label" data-i18n="hudTotalBits">GESAMT-BITS</span>
                     <span id="hud-score" class="hud-value neon-text-green">000000</span>
                 </div>
                 <div class="hud-item">
-                    <span class="hud-label">MULTIPLIKATOR</span>
+                    <span class="hud-label" data-i18n="hudMultiplier">MULTIPLIKATOR</span>
                     <div class="multiplier-status">
                         <span id="hud-multiplier" class="hud-value neon-text-blue">x1.0</span>
                         <div class="combo-bar-bg">
@@ -73,17 +81,17 @@
                     </div>
                 </div>
                 <div class="hud-item">
-                    <span class="hud-label">SCHLANGE</span>
+                    <span class="hud-label" data-i18n="hudSnake">SCHLANGE</span>
                     <span id="hud-snake-type" class="hud-value">Viper</span>
                 </div>
                 <div class="hud-item">
-                    <span class="hud-label">ZEIT</span>
+                    <span class="hud-label" data-i18n="hudTime">ZEIT</span>
                     <span id="hud-timer" class="hud-value neon-text-red">10.0s</span>
                 </div>
                 <div class="hud-item" id="hud-powerup-container">
-                    <span class="hud-label">POWERUP</span>
+                    <span class="hud-label" data-i18n="hudPowerup">POWERUP</span>
                     <div class="powerup-status">
-                        <span id="hud-powerup-name">KEINES</span>
+                        <span id="hud-powerup-name" data-i18n="hudNone">KEINES</span>
                         <div class="timer-bar-bg">
                             <div id="hud-powerup-bar" class="timer-bar-fill"></div>
                         </div>
@@ -97,36 +105,39 @@
                 <!-- GAME OVER OVERLAY -->
                 <div id="gameover-overlay" class="overlay glass-panel hidden">
                     <h2 id="gameover-title" class="neon-text-red blink">GAME OVER</h2>
-                    <p class="global-balance-text">Gesamtguthaben: <span id="global-balance-final"
-                            class="neon-text-gold">0</span> Bits</p>
+                    <p class="global-balance-text">
+                        <span data-i18n="totalBalance">Gesamtguthaben:</span>
+                        <span id="global-balance-final" class="neon-text-gold">0</span>
+                        <span data-i18n="bits">Bits</span>
+                    </p>
 
                     <div class="overlay-actions">
-                        <button id="btn-gameover-upgrades" class="btn-neon">UPGRADES</button>
-                        <button id="btn-restart" class="btn-neon secondary">NOCHMAL SPIELEN</button>
-                        <button id="btn-menu" class="btn-neon secondary">ZUM HAUPTMENÜ</button>
+                        <button id="btn-gameover-upgrades" class="btn-neon" data-i18n="btnGameoverUpgrades">UPGRADES</button>
+                        <button id="btn-restart" class="btn-neon secondary" data-i18n="btnRestart">NOCHMAL SPIELEN</button>
+                        <button id="btn-menu" class="btn-neon secondary" data-i18n="btnMenu">ZUM HAUPTMEN&#220;</button>
                     </div>
                 </div>
 
                 <!-- PAUSE OVERLAY -->
                 <div id="pause-overlay" class="overlay glass-panel hidden">
-                    <h2 class="neon-text-blue">PAUSE</h2>
-                    <p>Drücke <kbd>ESC</kbd> oder tippe hier, um fortzufahren</p>
-                    <button id="btn-resume" class="btn-neon">WEITER</button>
+                    <h2 class="neon-text-blue" data-i18n="pauseTitle">PAUSE</h2>
+                    <p data-i18n-html="pauseHint">Dr&#252;cke <kbd>ESC</kbd> oder tippe hier, um fortzufahren</p>
+                    <button id="btn-resume" class="btn-neon" data-i18n="btnResume">WEITER</button>
                 </div>
             </div>
 
             <!-- CONTROLS (for mobile or itch.io preview testing) -->
             <div class="touch-controls">
                 <div class="touch-row">
-                    <button id="ctrl-up" class="btn-ctrl">▲</button>
+                    <button id="ctrl-up" class="btn-ctrl">&#9650;</button>
                 </div>
                 <div class="touch-row">
-                    <button id="ctrl-left" class="btn-ctrl">◀</button>
-                    <button id="ctrl-pause" class="btn-ctrl btn-pause">⏸</button>
-                    <button id="ctrl-right" class="btn-ctrl">▶</button>
+                    <button id="ctrl-left" class="btn-ctrl">&#9664;</button>
+                    <button id="ctrl-pause" class="btn-ctrl btn-pause">&#9208;</button>
+                    <button id="ctrl-right" class="btn-ctrl">&#9654;</button>
                 </div>
                 <div class="touch-row">
-                    <button id="ctrl-down" class="btn-ctrl">▼</button>
+                    <button id="ctrl-down" class="btn-ctrl">&#9660;</button>
                 </div>
             </div>
         </div>
@@ -134,10 +145,10 @@
         <!-- SCREEN: UPGRADES / SKILLTREE -->
         <div id="screen-skilltree" class="screen">
             <div class="glass-panel skilltree-panel">
-                <h2>UPGRADE-MODULATOR</h2>
+                <h2 data-i18n="skilltreeTitle">UPGRADE-MODULATOR</h2>
 
                 <div class="skilltree-currency">
-                    <span class="currency-label">DEINE BITS:</span>
+                    <span class="currency-label" data-i18n="yourBits">DEINE BITS:</span>
                     <span id="skilltree-bits" class="neon-text-gold">0 NEON-BITS</span>
                 </div>
 
@@ -146,15 +157,15 @@
                     <div class="skill-node active-skill" id="skill-time">
                         <div class="skill-glow" style="background: var(--neon-blue);"></div>
                         <div class="skill-header">
-                            <div class="skill-icon">⏱</div>
+                            <div class="skill-icon">&#9201;</div>
                             <div class="skill-info">
-                                <h3>Rundenzeit-Expansion</h3>
-                                <p class="skill-desc">Erhöht das Zeitlimit der Runde um +1s.</p>
+                                <h3 data-i18n="skillTimeName">Rundenzeit-Expansion</h3>
+                                <p class="skill-desc" data-i18n="skillTimeDesc">Erh&#246;ht das Zeitlimit der Runde um +1s.</p>
                             </div>
                         </div>
                         <div class="skill-stats">
-                            <div>Stufe: <span id="time-level" class="neon-text-blue">0</span></div>
-                            <div>Dauer: <span id="time-current" class="neon-text-green">10s</span></div>
+                            <div><span data-i18n="labelLevel">Stufe:</span> <span id="time-level" class="neon-text-blue">0</span></div>
+                            <div><span data-i18n="labelDuration">Dauer:</span> <span id="time-current" class="neon-text-green">10s</span></div>
                         </div>
                         <button id="btn-upgrade-time" class="btn-neon btn-upgrade">VERBESSERN (50 B)</button>
                     </div>
@@ -163,15 +174,15 @@
                     <div class="skill-node active-skill" id="skill-food-mult">
                         <div class="skill-glow" style="background: var(--neon-purple);"></div>
                         <div class="skill-header">
-                            <div class="skill-icon">📈</div>
+                            <div class="skill-icon">&#128200;</div>
                             <div class="skill-info">
-                                <h3>Nahrungs-Multiplikator</h3>
-                                <p class="skill-desc">Erhöht den Score-Gewinn durch Nahrung um *10%.</p>
+                                <h3 data-i18n="skillFoodMultName">Nahrungs-Multiplikator</h3>
+                                <p class="skill-desc" data-i18n="skillFoodMultDesc">Erh&#246;ht den Score-Gewinn durch Nahrung um *10%.</p>
                             </div>
                         </div>
                         <div class="skill-stats">
-                            <div>Stufe: <span id="food-mult-level" class="neon-text-purple">0</span></div>
-                            <div>Effekt: <span id="food-mult-current" class="neon-text-green">x1.0</span></div>
+                            <div><span data-i18n="labelLevel">Stufe:</span> <span id="food-mult-level" class="neon-text-purple">0</span></div>
+                            <div><span data-i18n="labelEffect">Effekt:</span> <span id="food-mult-current" class="neon-text-green">x1.0</span></div>
                         </div>
                         <button id="btn-upgrade-food-mult" class="btn-neon btn-upgrade">VERBESSERN (60 B)</button>
                     </div>
@@ -180,15 +191,15 @@
                     <div class="skill-node active-skill" id="skill-food-speed">
                         <div class="skill-glow" style="background: var(--neon-pink);"></div>
                         <div class="skill-header">
-                            <div class="skill-icon">🚀</div>
+                            <div class="skill-icon">&#128640;</div>
                             <div class="skill-info">
-                                <h3>Nahrungs-Replikator</h3>
-                                <p class="skill-desc">Repliziert neue Nahrung schneller auf dem Spielfeld.</p>
+                                <h3 data-i18n="skillFoodSpeedName">Nahrungs-Replikator</h3>
+                                <p class="skill-desc" data-i18n="skillFoodSpeedDesc">Repliziert neue Nahrung schneller auf dem Spielfeld.</p>
                             </div>
                         </div>
                         <div class="skill-stats">
-                            <div>Stufe: <span id="food-speed-level" class="neon-text-pink">0</span></div>
-                            <div>Spawntakt: <span id="food-speed-current" class="neon-text-green">5.0s</span></div>
+                            <div><span data-i18n="labelLevel">Stufe:</span> <span id="food-speed-level" class="neon-text-pink">0</span></div>
+                            <div><span data-i18n="labelSpawnRate">Spawntakt:</span> <span id="food-speed-current" class="neon-text-green">5.0s</span></div>
                         </div>
                         <button id="btn-upgrade-food-speed" class="btn-neon btn-upgrade">VERBESSERN (80 B)</button>
                     </div>
@@ -197,15 +208,15 @@
                     <div class="skill-node active-skill" id="skill-food-count">
                         <div class="skill-glow" style="background: var(--neon-gold);"></div>
                         <div class="skill-header">
-                            <div class="skill-icon">🍎</div>
+                            <div class="skill-icon">&#127822;</div>
                             <div class="skill-info">
-                                <h3>Snack-Reserve</h3>
-                                <p class="skill-desc">Erhöht die maximale Nahrungsmenge auf dem Spielfeld um +1.</p>
+                                <h3 data-i18n="skillFoodCountName">Snack-Reserve</h3>
+                                <p class="skill-desc" data-i18n="skillFoodCountDesc">Erh&#246;ht die maximale Nahrungsmenge auf dem Spielfeld um +1.</p>
                             </div>
                         </div>
                         <div class="skill-stats">
-                            <div>Stufe: <span id="food-count-level" class="neon-text-gold">0</span></div>
-                            <div>Nahrung: <span id="food-count-current" class="neon-text-green">1x</span></div>
+                            <div><span data-i18n="labelLevel">Stufe:</span> <span id="food-count-level" class="neon-text-gold">0</span></div>
+                            <div><span data-i18n="labelFood">Nahrung:</span> <span id="food-count-current" class="neon-text-green">1x</span></div>
                         </div>
                         <button id="btn-upgrade-food-count" class="btn-neon btn-upgrade">VERBESSERN (150 B)</button>
                     </div>
@@ -214,15 +225,15 @@
                     <div class="skill-node active-skill" id="skill-speed">
                         <div class="skill-glow" style="background: var(--neon-blue);"></div>
                         <div class="skill-header">
-                            <div class="skill-icon">⚡</div>
+                            <div class="skill-icon">&#9889;</div>
                             <div class="skill-info">
-                                <h3>Schlangen-Antrieb</h3>
-                                <p class="skill-desc">Erhöht das Bewegungstempo der Schlange um *20%.</p>
+                                <h3 data-i18n="skillSpeedName">Schlangen-Antrieb</h3>
+                                <p class="skill-desc" data-i18n="skillSpeedDesc">Erh&#246;ht das Bewegungstempo der Schlange um *20%.</p>
                             </div>
                         </div>
                         <div class="skill-stats">
-                            <div>Stufe: <span id="speed-level" class="neon-text-gold">0</span></div>
-                            <div>Tempo: <span id="speed-current" class="neon-text-green">100%</span></div>
+                            <div><span data-i18n="labelLevel">Stufe:</span> <span id="speed-level" class="neon-text-gold">0</span></div>
+                            <div><span data-i18n="labelSpeed">Tempo:</span> <span id="speed-current" class="neon-text-green">100%</span></div>
                         </div>
                         <button id="btn-upgrade-speed" class="btn-neon btn-upgrade">VERBESSERN (40 B)</button>
                     </div>
@@ -231,14 +242,14 @@
                     <div class="skill-node active-skill" id="skill-ai-player">
                         <div class="skill-glow" style="background: var(--neon-green);"></div>
                         <div class="skill-header">
-                            <div class="skill-icon">🤖</div>
+                            <div class="skill-icon">&#129302;</div>
                             <div class="skill-info">
-                                <h3>Autopilot-Modul (KI)</h3>
-                                <p class="skill-desc">Steuert die Schlange automatisch zum nächstgelegenen Snack.</p>
+                                <h3 data-i18n="skillAIName">Autopilot-Modul (KI)</h3>
+                                <p class="skill-desc" data-i18n="skillAIDesc">Steuert die Schlange automatisch zum n&#228;chstgelegenen Snack.</p>
                             </div>
                         </div>
                         <div class="skill-stats">
-                            <div>Status: <span id="ai-player-current" class="neon-text-green">NICHT ERWORBEN</span>
+                            <div><span data-i18n="labelStatus">Status:</span> <span id="ai-player-current" class="neon-text-green">NICHT ERWORBEN</span>
                             </div>
                         </div>
                         <button id="btn-upgrade-ai-player" class="btn-neon btn-upgrade">KAUFEN (500 B)</button>
@@ -246,21 +257,22 @@
                 </div>
 
                 <div class="menu-actions">
-                    <button id="btn-skilltree-start" class="btn-neon">RUNDE STARTEN</button>
-                    <button id="btn-skilltree-back" class="btn-neon secondary">ZURÜCK</button>
+                    <button id="btn-skilltree-start" class="btn-neon" data-i18n="btnStartRound">RUNDE STARTEN</button>
+                    <button id="btn-skilltree-back" class="btn-neon secondary" data-i18n="btnBack">ZUR&#220;CK</button>
                 </div>
             </div>
         </div>
 
         <!-- INSTRUCTIONS -->
         <footer class="game-footer">
-            <p>Steuerung: <kbd>WASD</kbd> / <kbd>Pfeiltasten</kbd> zum Bewegen | <kbd>ESC</kbd> für Pause</p>
+            <p data-i18n-html="footerHint">Steuerung: <kbd>WASD</kbd> / <kbd>Pfeiltasten</kbd> zum Bewegen | <kbd>ESC</kbd> f&#252;r Pause</p>
         </footer>
     </div>
 
     <!-- Scripts -->
     <script src="audio.js"></script>
-    <script src="game.js?v=3"></script>
+    <script src="i18n.js"></script>
+    <script src="game.js?v=4"></script>
 </body>
 
 </html>
